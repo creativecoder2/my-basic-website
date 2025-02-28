@@ -1,5 +1,3 @@
-# .github/workflows/playwright.yml
-
 name: Playwright Tests
 
 on:
@@ -24,7 +22,9 @@ jobs:
         node-version: '16'  # Aap jo bhi Node.js version use karte hain, uska version yahan mention karein
 
     - name: Install dependencies
-      run: npm install  # Project dependencies install karte hain
+      run: |
+        npm install  # Project dependencies install karte hain
+        npx playwright install  # Playwright ko install karte hain (yeh step important hai)
 
     - name: Run Playwright tests
       run: npx playwright test  # Playwright tests run karte hain
