@@ -1,0 +1,30 @@
+# .github/workflows/playwright.yml
+
+name: Playwright Tests
+
+on:
+  push:
+    branches:
+      - main  # Jab main branch pe push hoga, yeh action run hoga
+  pull_request:
+    branches:
+      - main  # Jab pull request main branch ke liye open hoga
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Ubuntu image pe run karenge
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3  # Code ko checkout karte hain
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3  # Node.js setup karte hain
+      with:
+        node-version: '16'  # Aap jo bhi Node.js version use karte hain, uska version yahan mention karein
+
+    - name: Install dependencies
+      run: npm install  # Project dependencies install karte hain
+
+    - name: Run Playwright tests
+      run: npx playwright test  # Playwright tests run karte hain
