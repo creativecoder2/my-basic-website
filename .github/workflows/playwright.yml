@@ -21,10 +21,13 @@ jobs:
       with:
         node-version: '18'  # Set Node.js version
 
-    - name: Install dependencies
+    - name: Install Playwright globally
       run: |
-        npm install  # Install project dependencies
-        npx playwright install  # Install Playwright binaries
+        npm install -g playwright  # Globally install Playwright
+        sudo chmod +x $(npm bin -g)/playwright  # Ensure Playwright is executable globally
+
+    - name: Install dependencies
+      run: npm install  # Install project dependencies
 
     - name: Run Playwright tests
       run: npx playwright test  # Run Playwright tests using npx
