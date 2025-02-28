@@ -19,12 +19,13 @@ jobs:
     - name: Set up Node.js (v18)
       uses: actions/setup-node@v3  # Node.js setup karte hain
       with:
-        node-version: '18'  # Updated Node.js version to v18
+        node-version: '18'  # Node.js v18 use kar rahe hain
 
     - name: Install dependencies
       run: |
         npm install  # Project dependencies install karte hain
         npx playwright install  # Playwright ko install karte hain
+        chmod +x node_modules/.bin/playwright  # Playwright ko executable permissions dena
 
     - name: Run Playwright tests
-      run: npx playwright test  # Playwright tests run karenge
+      run: npx playwright test  # Playwright tests ko run karenge
