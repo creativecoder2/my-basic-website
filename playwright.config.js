@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const { devices } = require('@playwright/test');  // Import devices
+const { devices } = require('@playwright/test');
 
 module.exports = {
   testDir: './landingscreen',  // Path to your test directory
