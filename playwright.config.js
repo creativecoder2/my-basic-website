@@ -3,6 +3,7 @@ const fs = require('fs');
 const { devices } = require('@playwright/test');
 
 module.exports = {
+  name: 'landingscreen',
   testDir: './landingscreen', // Path to your test directory
   workers: 2,
   timeout: 60000, // Test timeout (adjust as necessary)
