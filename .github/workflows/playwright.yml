@@ -3,29 +3,29 @@ name: Playwright Tests
 on:
   push:
     branches:
-      - main
+      - main  # Jab main branch pe push hoga, yeh action run hoga
   pull_request:
     branches:
-      - main
+      - main  # Jab pull request main branch ke liye open hoga
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Ubuntu image pe run karenge
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v3  # Code ko checkout karte hain
 
     - name: Set up Node.js (v18)
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v3  # Node.js setup karte hain
       with:
-        node-version: '18'
+        node-version: '18'  # Updated Node.js version to v18
 
     - name: Install dependencies
       run: |
-        npm install
-        npx playwright install
-        chmod +x node_modules/.bin/playwright  # Give execute permissions to playwright
+        npm install  # Project dependencies install karte hain
+        npm install -g playwright  # Playwright ko globally install karenge (global install ka ek aur step)
+        npx playwright install  # Playwright ko install karenge (yeh step zaroori hai)
 
     - name: Run Playwright tests
-      run: npx playwright test
+      run: npx playwright test  # Playwright tests run karenge
