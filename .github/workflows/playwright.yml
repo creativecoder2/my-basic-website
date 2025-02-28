@@ -24,8 +24,7 @@ jobs:
     - name: Install dependencies
       run: |
         npm install  # Project dependencies install karte hain
-        npm install -g playwright  # Playwright ko globally install karenge (global install ka ek aur step)
-        npx playwright install  # Playwright ko install karenge (yeh step zaroori hai)
+        npx playwright install  # Playwright ko install karte hain
 
     - name: Run Playwright tests
       run: npx playwright test  # Playwright tests run karenge
