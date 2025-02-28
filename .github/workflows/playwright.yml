@@ -30,4 +30,4 @@ jobs:
       run: npm install  # Install project dependencies
 
     - name: Run Playwright tests
-      run: npm test  # Run Playwright tests
+      run: playwright test  # Run Playwright tests
