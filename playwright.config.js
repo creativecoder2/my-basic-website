@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const { devices } = require('@playwright/test');  // Import devices
 
 module.exports = {
   testDir: './landingscreen',  // Path to your test directory
@@ -17,6 +18,7 @@ module.exports = {
     },
     screenshot: 'only-on-failure',  // Take screenshots only on failure
     trace: 'on',               // Optional: enables trace recording
+    ...devices['iPhone 11'],   // Add device configuration here
   },
   reporter: [
     ['list'],                  // Display results in the terminal
