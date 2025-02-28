@@ -16,10 +16,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3  # Code ko checkout karte hain
 
-    - name: Set up Node.js
+    - name: Set up Node.js (v18)
       uses: actions/setup-node@v3  # Node.js setup karte hain
       with:
-        node-version: '16'  # Aap jo bhi Node.js version use karte hain, uska version yahan mention karein
+        node-version: '18'  # Updated Node.js version to v18
 
     - name: Install dependencies
       run: |
