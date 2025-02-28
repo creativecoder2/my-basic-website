@@ -10,7 +10,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest  # Use Ubuntu runner
+    runs-on: ubuntu-latest  # Ubuntu runner
 
     steps:
     - name: Checkout code
@@ -24,7 +24,7 @@ jobs:
     - name: Install Playwright globally
       run: |
         npm install -g playwright  # Globally install Playwright
-        sudo chmod +x /usr/local/bin/playwright  # Ensure Playwright is executable globally
+        echo "Playwright installed at: $(which playwright)"  # Print path to Playwright binary
 
     - name: Install dependencies
       run: npm install  # Install project dependencies
