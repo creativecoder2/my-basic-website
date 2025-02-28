@@ -6,5 +6,5 @@ test('should open website and check title', async ({ page }) => {
 
   // Check the title of the page
   const title = await page.title();
-  expect(title).toBe('Expected Title'); // Replace with the expected title
+  expect(title).toBe('My Basic Website'); // Replace with the expected title
 });
