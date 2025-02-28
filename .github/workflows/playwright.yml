@@ -10,22 +10,24 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest  # Ubuntu image ko use karenge
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3  # GitHub repository ko checkout karenge
+      uses: actions/checkout@v3
 
     - name: Set up Node.js (v18)
       uses: actions/setup-node@v3
       with:
-        node-version: '18'  # Node.js version set karenge
+        node-version: '18'
+
+    - name: Install Playwright globally
+      run: |
+        npm install -g playwright  # Global installation
+        chmod +x $(npm bin -g)/playwright  # Ensure Playwright is executable globally
 
     - name: Install dependencies
-      run: |
-        npm install  # Project dependencies install karenge
-        npx playwright install  # Playwright ko install karenge
-        sudo chmod -R +x node_modules/.bin/playwright  # Ensure Playwright binary is executable
+      run: npm install  # Project dependencies install karenge
 
     - name: Run Playwright tests
-      run: npx playwright test  # Playwright tests run karenge
+      run: playwright test  # Playwright tests run karenge
