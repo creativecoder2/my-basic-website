@@ -1,19 +1,10 @@
-import { chromium, devices } from 'playwright';
-import assert from 'node:assert';
+import { expect, test, devices } from '@playwright/test';
 
-(async () => {
-  // Setup
-  const browser = await chromium.launch();
-  const context = await browser.newContext(devices['iPhone 11']);
-  const page = await context.newPage();
+test.use(devices['iPhone 11']);
 
-  // The actual interesting bit
+test('should be titled', async ({ page, context }) => {
   await context.route('**.jpg', route => route.abort());
   await page.goto('https://example.com/');
 
-  assert(await page.title() === 'Example Domain'); // 👎 not a Web First assertion
-
-  // Teardown
-  await context.close();
-  await browser.close();
-})();
+  await expect(page).toHaveTitle('Example');
+});
